@@ -1,0 +1,792 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 6,
+  "links": [],
+  "panels": [
+    {
+      "datasource": {
+        "type": "grafana-postgresql-datasource",
+        "uid": "afdpjsiebffnk"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": true,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisGridShow": true,
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 1,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 3,
+            "pointSize": 7,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "always",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "fieldMinMax": false,
+          "mappings": [
+            {
+              "options": {
+                "bakery & grains": {
+                  "color": "light-orange",
+                  "index": 3
+                },
+                "breakfast": {
+                  "color": "super-light-blue",
+                  "index": 7
+                },
+                "dairy & eggs": {
+                  "color": "light-yellow",
+                  "index": 2
+                },
+                "drinks": {
+                  "color": "dark-blue",
+                  "index": 5
+                },
+                "fresh food": {
+                  "color": "semi-dark-green",
+                  "index": 0
+                },
+                "household": {
+                  "color": "dark-purple",
+                  "index": 8
+                },
+                "pantry": {
+                  "color": "light-purple",
+                  "index": 4
+                },
+                "personal care": {
+                  "color": "blue",
+                  "index": 9
+                },
+                "pets": {
+                  "color": "yellow",
+                  "index": 10
+                },
+                "protein": {
+                  "color": "red",
+                  "index": 1
+                },
+                "snacks & sweets": {
+                  "color": "dark-orange",
+                  "index": 6
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "currencyEUR"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 11,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 1,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.3.1",
+      "targets": [
+        {
+          "dataset": "grocery",
+          "datasource": {
+            "type": "grafana-postgresql-datasource",
+            "uid": "afdpjsiebffnk"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT\n  date AS \"time\",\n  top_category AS \"metric\",\n  SUM(price) AS \" \"\nFROM groceries\nGROUP BY date, top_category\nORDER BY date;\n",
+          "refId": "A",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
+        }
+      ],
+      "title": "Kosten im Laufe der Zeit",
+      "transformations": [
+        {
+          "id": "prepareTimeSeries",
+          "options": {
+            "format": "multi"
+          }
+        }
+      ],
+      "transparent": true,
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "grafana-postgresql-datasource",
+        "uid": "afdpjsiebffnk"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            }
+          },
+          "links": [
+            {
+              "targetBlank": true,
+              "title": "Details",
+              "url": "https://grafana.example.com/d/bowr5fn/groceries-by-category?orgId=1&from=2026-02-18T23:15:16.413Z&to=2026-02-19T23:15:16.413Z&timezone=browser"
+            }
+          ],
+          "mappings": [
+            {
+              "options": {
+                "bakery & grains": {
+                  "color": "light-orange",
+                  "index": 3
+                },
+                "breakfast": {
+                  "color": "super-light-blue",
+                  "index": 7
+                },
+                "dairy & eggs": {
+                  "color": "light-yellow",
+                  "index": 2
+                },
+                "drinks": {
+                  "color": "dark-blue",
+                  "index": 5
+                },
+                "fresh food": {
+                  "color": "semi-dark-green",
+                  "index": 0
+                },
+                "household": {
+                  "color": "dark-purple",
+                  "index": 8
+                },
+                "pantry": {
+                  "color": "light-purple",
+                  "index": 4
+                },
+                "personal care": {
+                  "color": "blue",
+                  "index": 9
+                },
+                "pets": {
+                  "color": "yellow",
+                  "index": 10
+                },
+                "protein": {
+                  "color": "red",
+                  "index": 1
+                },
+                "snacks & sweets": {
+                  "color": "dark-orange",
+                  "index": 6
+                }
+              },
+              "type": "value"
+            }
+          ]
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 12,
+        "x": 0,
+        "y": 11
+      },
+      "id": 2,
+      "options": {
+        "displayLabels": [
+          "percent"
+        ],
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "right",
+          "showLegend": true,
+          "values": [
+            "percent"
+          ]
+        },
+        "pieType": "pie",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": true
+        },
+        "sort": "desc",
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.3.1",
+      "targets": [
+        {
+          "dataset": "grocery",
+          "datasource": {
+            "type": "grafana-postgresql-datasource",
+            "uid": "afdpjsiebffnk"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT\n  top_category AS \"category\",\n  SUM(price) AS \"total\"\nFROM groceries\nGROUP BY top_category\nORDER BY total DESC;\n",
+          "refId": "A",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
+        }
+      ],
+      "title": "Kostenverteilung",
+      "transparent": true,
+      "type": "piechart"
+    },
+    {
+      "datasource": {
+        "type": "grafana-postgresql-datasource",
+        "uid": "afdpjsiebffnk"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "fillOpacity": 80,
+            "gradientMode": "hue",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineWidth": 0,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [
+            {
+              "options": {
+                "bakery & grains": {
+                  "color": "light-orange",
+                  "index": 3
+                },
+                "breakfast": {
+                  "color": "super-light-blue",
+                  "index": 7
+                },
+                "dairy & eggs": {
+                  "color": "light-yellow",
+                  "index": 2
+                },
+                "drinks": {
+                  "color": "dark-blue",
+                  "index": 5
+                },
+                "fresh food": {
+                  "color": "semi-dark-green",
+                  "index": 0
+                },
+                "household": {
+                  "color": "dark-purple",
+                  "index": 8
+                },
+                "pantry": {
+                  "color": "light-purple",
+                  "index": 4
+                },
+                "personal care": {
+                  "color": "blue",
+                  "index": 9
+                },
+                "pets": {
+                  "color": "yellow",
+                  "index": 10
+                },
+                "protein": {
+                  "color": "red",
+                  "index": 1
+                },
+                "snacks & sweets": {
+                  "color": "dark-orange",
+                  "index": 6
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 12,
+        "x": 12,
+        "y": 11
+      },
+      "id": 3,
+      "options": {
+        "barRadius": 0.5,
+        "barWidth": 0.8,
+        "colorByField": "top_category",
+        "fullHighlight": false,
+        "groupWidth": 0.7,
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "right",
+          "showLegend": true
+        },
+        "orientation": "horizontal",
+        "showValue": "never",
+        "stacking": "none",
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        },
+        "xTickLabelRotation": 0,
+        "xTickLabelSpacing": 0
+      },
+      "pluginVersion": "12.3.1",
+      "targets": [
+        {
+          "dataset": "grocery",
+          "datasource": {
+            "type": "grafana-postgresql-datasource",
+            "uid": "afdpjsiebffnk"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT\n  name,\n  top_category,\n  SUM(price) AS total_spent\nFROM groceries\nGROUP BY name, top_category\nORDER BY total_spent DESC\nLIMIT 10;\n",
+          "refId": "A",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
+        }
+      ],
+      "title": "Am teueresten",
+      "transparent": true,
+      "type": "barchart"
+    },
+    {
+      "datasource": {
+        "type": "grafana-postgresql-datasource",
+        "uid": "afdpjsiebffnk"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "continuous-GrYlRd"
+          },
+          "decimals": 0,
+          "displayName": "${__field.labels.top_category}",
+          "fieldMinMax": false,
+          "mappings": [
+            {
+              "options": {
+                "bakery & grains": {
+                  "color": "light-orange",
+                  "index": 3
+                },
+                "breakfast": {
+                  "color": "super-light-blue",
+                  "index": 7
+                },
+                "dairy & eggs": {
+                  "color": "light-yellow",
+                  "index": 2
+                },
+                "drinks": {
+                  "color": "dark-blue",
+                  "index": 5
+                },
+                "fresh food": {
+                  "color": "semi-dark-green",
+                  "index": 0
+                },
+                "household": {
+                  "color": "dark-purple",
+                  "index": 8
+                },
+                "pantry": {
+                  "color": "light-purple",
+                  "index": 4
+                },
+                "personal care": {
+                  "color": "blue",
+                  "index": 9
+                },
+                "pets": {
+                  "color": "yellow",
+                  "index": 10
+                },
+                "protein": {
+                  "color": "red",
+                  "index": 1
+                },
+                "snacks & sweets": {
+                  "color": "dark-orange",
+                  "index": 6
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 24,
+        "x": 0,
+        "y": 21
+      },
+      "id": 4,
+      "options": {
+        "displayMode": "gradient",
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "maxVizHeight": 300,
+        "minVizHeight": 136,
+        "minVizWidth": 120,
+        "namePlacement": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "count"
+          ],
+          "fields": "/^%$/",
+          "values": true
+        },
+        "showUnfilled": true,
+        "sizing": "auto",
+        "text": {},
+        "valueMode": "color"
+      },
+      "pluginVersion": "12.3.1",
+      "targets": [
+        {
+          "dataset": "grocery",
+          "datasource": {
+            "type": "grafana-postgresql-datasource",
+            "uid": "afdpjsiebffnk"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "WITH budgets AS (\n  SELECT * FROM (VALUES\n    ('bakery & grains', 50),\n    ('breakfast', 40),\n    ('dairy & eggs', 60),\n    ('drinks', 50),\n    ('fresh food', 120),\n    ('household', 40),\n    ('pantry', 80),\n    ('personal care', 30),\n    ('pets', 40),\n    ('protein', 120),\n    ('snacks & sweets', 40)\n  ) AS b(top_category, budget)\n),\nactual AS (\n  SELECT\n    top_category,\n    SUM(price) AS spent\n  FROM groceries\n  WHERE date >= date_trunc('month', CURRENT_DATE)\n  GROUP BY top_category\n)\nSELECT\n  b.top_category,\n  COALESCE(a.spent, 0) AS spent,\n  b.budget,\n  (b.budget - COALESCE(a.spent, 0)) AS remaining,\n  100 * COALESCE(a.spent, 0) / NULLIF(b.budget, 0) AS \"%\"\nFROM budgets b\nLEFT JOIN actual a USING (top_category);\n",
+          "refId": "A",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
+        }
+      ],
+      "title": "Budget",
+      "transparent": true,
+      "type": "bargauge"
+    },
+    {
+      "datasource": {
+        "type": "grafana-postgresql-datasource",
+        "uid": "afdpjsiebffnk"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": true,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisGridShow": false,
+            "axisLabel": "Spending",
+            "axisPlacement": "left",
+            "fillOpacity": 80,
+            "gradientMode": "hue",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineWidth": 3,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              }
+            ]
+          },
+          "unit": "currencyEUR"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 14,
+        "w": 24,
+        "x": 0,
+        "y": 31
+      },
+      "id": 5,
+      "options": {
+        "barRadius": 0.1,
+        "barWidth": 0.97,
+        "fullHighlight": true,
+        "groupWidth": 0.7,
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "orientation": "vertical",
+        "showValue": "always",
+        "stacking": "none",
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "none",
+          "sort": "none"
+        },
+        "xField": "month",
+        "xTickLabelRotation": 0,
+        "xTickLabelSpacing": 0
+      },
+      "pluginVersion": "12.3.1",
+      "targets": [
+        {
+          "dataset": "grocery",
+          "datasource": {
+            "type": "grafana-postgresql-datasource",
+            "uid": "afdpjsiebffnk"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT\n  date_trunc('month', date) AS month,\n  SUM(price) AS total_spending\nFROM groceries\nGROUP BY month\nORDER BY month;\n",
+          "refId": "A",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
+        }
+      ],
+      "title": "Monthly Spending",
+      "transparent": true,
+      "type": "barchart"
+    }
+  ],
+  "preload": false,
+  "schemaVersion": 42,
+  "tags": [],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "2025-06-03T22:00:00.000Z",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "browser",
+  "title": "Groceries - Main",
+  "uid": "bobpop5d",
+  "version": 5
+}
