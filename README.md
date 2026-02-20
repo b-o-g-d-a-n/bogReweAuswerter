@@ -44,8 +44,12 @@ Convert REWE eBon PDF receipts into a categorized CSV for further analysis (Exce
 - Search for `grafana.example.com` and replace it with your grafana instance url
 
 
-## Examples
+## Grafana Dashboard Examples
+
+#### ./Grafana/grocery-main.json:
 ![Main Dashboard Screenshot](./images/grocery-grafana-main-1.png)
 ![Main Dashboard Screenshot](./images/grocery-grafana-main-2.png)
+
+#### ./Grafana/grocery-by-category.json
 ![By Category Dashboard Screenshot](./images/grocery-grafana-by-category-1.png)
 
