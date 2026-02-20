@@ -1,0 +1,7 @@
+__pycache__
+
+Bons/*
+!Bons/.gitkeep
+
+output.csv
+
