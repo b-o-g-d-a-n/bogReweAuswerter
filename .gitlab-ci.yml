@@ -9,8 +9,7 @@ import_bons_csv_to_postgres:
     - k8s
 
   rules:
-    - if: '$CI_COMMIT_BRANCH == "gitlab"'
-      changes:
+    - changes:
         - Bons/**/*
     - when: never
 
