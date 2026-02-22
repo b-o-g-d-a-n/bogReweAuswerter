@@ -326,7 +326,7 @@
           "editorMode": "code",
           "format": "table",
           "rawQuery": true,
-          "rawSql": "SELECT\n  top_category AS \"category\",\n  SUM(price) AS \"total\"\nFROM groceries\nGROUP BY top_category\nORDER BY total DESC;\n",
+          "rawSql": "SELECT\n  top_category AS \"category\",\n  SUM(price) AS \"total\"\nFROM groceries\nWHERE $__timeFilter(date)\nGROUP BY top_category\nORDER BY total DESC;\n",
           "refId": "A",
           "sql": {
             "columns": [
@@ -487,7 +487,7 @@
           "editorMode": "code",
           "format": "table",
           "rawQuery": true,
-          "rawSql": "SELECT\n  name,\n  top_category,\n  SUM(price) AS total_spent\nFROM groceries\nGROUP BY name, top_category\nORDER BY total_spent DESC\nLIMIT 10;\n",
+          "rawSql": "SELECT\n  name,\n  top_category,\n  SUM(price) AS total_spent\nFROM groceries\nWHERE $__timeFilter(date)\nGROUP BY name, top_category\nORDER BY total_spent DESC\nLIMIT 10;\n",
           "refId": "A",
           "sql": {
             "columns": [
