@@ -1,0 +1,42 @@
+stages:
+ - import
+
+import_bons_csv_to_postgres:
+  stage: import
+  image: python:3.12-slim
+
+  tags:
+    - k8s
+
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "gitlab"'
+      changes:
+        - Bons/**/*
+    - when: never
+
+  variables:
+    PGHOST: postgres-postgresql.databases.svc.cluster.local
+    PGUSER: grocery_admin
+    PGDATABASE: grocery
+    PGTABLE: groceries
+    PGPORT: "5432"
+    PGSSLMODE: disable
+    OUTPUT_FILE: output.csv
+    #!!! Dont forget to set in GitLab -> Settings -> CI/CD -> Variables -> PGPASSWORD
+
+  before_script:
+    - apt-get update
+    - apt-get install -y --no-install-recommends postgresql-client
+    - rm -rf /var/lib/apt/lists/*
+
+  script:
+    # 1) run your script
+    - pip install -r requirements.txt
+    - python auswerter.py
+    - test -f ${OUTPUT_FILE}
+
+    # 2) import CSV into Postgres table
+    - echo "host=${PGHOST} port=${PGPORT} dbname=${PGDATABASE} user=${PGUSER}"
+    - psql "host=${PGHOST} port=${PGPORT} dbname=${PGDATABASE} user=${PGUSER}" -v ON_ERROR_STOP=1 -c "TRUNCATE TABLE ${PGTABLE};"
+    - psql "host=${PGHOST} port=${PGPORT} dbname=${PGDATABASE} user=${PGUSER}" -v ON_ERROR_STOP=1 -c "\copy ${PGTABLE}(date,name,price,category,top_category) FROM '${OUTPUT_FILE}' WITH (FORMAT csv, HEADER true);"
+
