@@ -39,7 +39,7 @@
             }
           },
           "mappings": [],
-          "unit": "percent"
+          "unit": "currencyEUR"
         },
         "overrides": []
       },
@@ -145,7 +145,7 @@
             }
           },
           "mappings": [],
-          "unit": "percent"
+          "unit": "currencyEUR"
         },
         "overrides": [
           {
@@ -276,7 +276,7 @@
             }
           },
           "mappings": [],
-          "unit": "percent"
+          "unit": "currencyEUR"
         },
         "overrides": []
       },
@@ -382,7 +382,7 @@
             }
           },
           "mappings": [],
-          "unit": "percent"
+          "unit": "currencyEUR"
         },
         "overrides": []
       },
@@ -488,7 +488,7 @@
             }
           },
           "mappings": [],
-          "unit": "percent"
+          "unit": "currencyEUR"
         },
         "overrides": []
       },
@@ -594,7 +594,7 @@
             }
           },
           "mappings": [],
-          "unit": "percent"
+          "unit": "currencyEUR"
         },
         "overrides": []
       },
@@ -700,7 +700,7 @@
             }
           },
           "mappings": [],
-          "unit": "percent"
+          "unit": "currencyEUR"
         },
         "overrides": []
       },
@@ -806,7 +806,7 @@
             }
           },
           "mappings": [],
-          "unit": "percent"
+          "unit": "currencyEUR"
         },
         "overrides": []
       },
@@ -912,7 +912,7 @@
             }
           },
           "mappings": [],
-          "unit": "percent"
+          "unit": "currencyEUR"
         },
         "overrides": []
       },
@@ -1018,7 +1018,7 @@
             }
           },
           "mappings": [],
-          "unit": "percent"
+          "unit": "currencyEUR"
         },
         "overrides": []
       },
@@ -1124,7 +1124,7 @@
             }
           },
           "mappings": [],
-          "unit": "percent"
+          "unit": "currencyEUR"
         },
         "overrides": []
       },
