@@ -85,7 +85,7 @@
           "editorMode": "code",
           "format": "table",
           "rawQuery": true,
-          "rawSql": "SELECT\n   category,\n   SUM(price) AS \"total\"\nFROM groceries\nWHERE top_category = 'bakery & grains'\nGROUP BY category;\n",
+          "rawSql": "SELECT\n   category,\n   SUM(price) AS \"total\"\nFROM groceries\nWHERE $__timeFilter(date) AND top_category = 'bakery & grains'\nGROUP BY category;\n",
           "refId": "A",
           "sql": {
             "columns": [
@@ -216,7 +216,7 @@
           "editorMode": "code",
           "format": "table",
           "rawQuery": true,
-          "rawSql": "SELECT\n   category,\n   SUM(price) AS \"total\"\nFROM groceries\nWHERE top_category = 'breakfast'\nGROUP BY category;\n",
+          "rawSql": "SELECT\n   category,\n   SUM(price) AS \"total\"\nFROM groceries\nWHERE $__timeFilter(date) AND top_category = 'breakfast'\nGROUP BY category;\n",
           "refId": "A",
           "sql": {
             "columns": [
@@ -322,7 +322,7 @@
           "editorMode": "code",
           "format": "table",
           "rawQuery": true,
-          "rawSql": "SELECT\n   category,\n   SUM(price) AS \"total\"\nFROM groceries\nWHERE top_category = 'dairy & eggs'\nGROUP BY category;\n",
+          "rawSql": "SELECT\n   category,\n   SUM(price) AS \"total\"\nFROM groceries\nWHERE $__timeFilter(date) AND top_category = 'dairy & eggs'\nGROUP BY category;\n",
           "refId": "A",
           "sql": {
             "columns": [
@@ -428,7 +428,7 @@
           "editorMode": "code",
           "format": "table",
           "rawQuery": true,
-          "rawSql": "SELECT\n   category,\n   SUM(price) AS \"total\"\nFROM groceries\nWHERE top_category = 'drinks'\nGROUP BY category;\n",
+          "rawSql": "SELECT\n   category,\n   SUM(price) AS \"total\"\nFROM groceries\nWHERE $__timeFilter(date) AND top_category = 'drinks'\nGROUP BY category;\n",
           "refId": "A",
           "sql": {
             "columns": [
@@ -534,7 +534,7 @@
           "editorMode": "code",
           "format": "table",
           "rawQuery": true,
-          "rawSql": "SELECT\n   category,\n   SUM(price) AS \"total\"\nFROM groceries\nWHERE top_category = 'fresh food'\nGROUP BY category;\n",
+          "rawSql": "SELECT\n   category,\n   SUM(price) AS \"total\"\nFROM groceries\nWHERE $__timeFilter(date) AND top_category = 'fresh food'\nGROUP BY category;\n",
           "refId": "A",
           "sql": {
             "columns": [
@@ -640,7 +640,7 @@
           "editorMode": "code",
           "format": "table",
           "rawQuery": true,
-          "rawSql": "SELECT\n   category,\n   SUM(price) AS \"total\"\nFROM groceries\nWHERE top_category = 'household'\nGROUP BY category;\n",
+          "rawSql": "SELECT\n   category,\n   SUM(price) AS \"total\"\nFROM groceries\nWHERE $__timeFilter(date) AND top_category = 'household'\nGROUP BY category;\n",
           "refId": "A",
           "sql": {
             "columns": [
@@ -746,7 +746,7 @@
           "editorMode": "code",
           "format": "table",
           "rawQuery": true,
-          "rawSql": "SELECT\n   category,\n   SUM(price) AS \"total\"\nFROM groceries\nWHERE top_category = 'pantry'\nGROUP BY category;\n",
+          "rawSql": "SELECT\n   category,\n   SUM(price) AS \"total\"\nFROM groceries\nWHERE $__timeFilter(date) AND top_category = 'pantry'\nGROUP BY category;\n",
           "refId": "A",
           "sql": {
             "columns": [
@@ -852,7 +852,7 @@
           "editorMode": "code",
           "format": "table",
           "rawQuery": true,
-          "rawSql": "SELECT\n   category,\n   SUM(price) AS \"total\"\nFROM groceries\nWHERE top_category = 'personal care'\nGROUP BY category;\n",
+          "rawSql": "SELECT\n   category,\n   SUM(price) AS \"total\"\nFROM groceries\nWHERE $__timeFilter(date) AND top_category = 'personal care'\nGROUP BY category;\n",
           "refId": "A",
           "sql": {
             "columns": [
@@ -958,7 +958,7 @@
           "editorMode": "code",
           "format": "table",
           "rawQuery": true,
-          "rawSql": "SELECT\n   category,\n   SUM(price) AS \"total\"\nFROM groceries\nWHERE top_category = 'pets'\nGROUP BY category;\n",
+          "rawSql": "SELECT\n   category,\n   SUM(price) AS \"total\"\nFROM groceries\nWHERE $__timeFilter(date) AND top_category = 'pets'\nGROUP BY category;\n",
           "refId": "A",
           "sql": {
             "columns": [
@@ -1064,7 +1064,7 @@
           "editorMode": "code",
           "format": "table",
           "rawQuery": true,
-          "rawSql": "SELECT\n   category,\n   SUM(price) AS \"total\"\nFROM groceries\nWHERE top_category = 'protein'\nGROUP BY category;\n",
+          "rawSql": "SELECT\n   category,\n   SUM(price) AS \"total\"\nFROM groceries\nWHERE $__timeFilter(date) AND top_category = 'protein'\nGROUP BY category;\n",
           "refId": "A",
           "sql": {
             "columns": [
@@ -1170,7 +1170,7 @@
           "editorMode": "code",
           "format": "table",
           "rawQuery": true,
-          "rawSql": "SELECT\n   category,\n   SUM(price) AS \"total\"\nFROM groceries\nWHERE top_category = 'snacks & sweets'\nGROUP BY category;\n",
+          "rawSql": "SELECT\n   category,\n   SUM(price) AS \"total\"\nFROM groceries\nWHERE $__timeFilter(date) AND top_category = 'snacks & sweets'\nGROUP BY category;\n",
           "refId": "A",
           "sql": {
             "columns": [
