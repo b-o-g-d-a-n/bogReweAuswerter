@@ -1,0 +1,36 @@
+stages:
+- import
+
+import_bons_csv_to_postgres:
+  stage: import
+  image: python:3.12-slim
+  rules:
+    - changes:
+        - Bons/**/*
+
+  variables:
+    PGDATABASE: grocery
+    PGTABLE: groceries
+    PGPORT: "5432"
+    PGSSLMODE: disabled
+    OUTPUT_FILE: output.csv
+    # Dont forget to set in GitLab -> Settings -> CI/CD -> Variables:
+    # PGHOST, PGUSER, PGPASSWORD
+
+  before_script:
+    - apt-get update
+    - apt-get install -y --no-install-recommends postgresql-client
+    - rm -rf /var/lib/apt/lists/*
+
+  script:
+    # 1) run your script
+    - python auswerter.py
+    - test -f output.csv
+
+    # 2) import CSV into Postgres table
+    #    - PGTABLE must be set (e.g. "bons_import")
+    - |
+      psql "host=${PGHOST} port=${PGPORT} dbname=${PGDATABASE} user=${PGUSER}" \
+        -v ON_ERROR_STOP=1 \
+        -c "\copy ${PGTABLE} FROM 'output.csv' WITH (FORMAT csv, HEADER true)"
+
