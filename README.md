@@ -32,6 +32,10 @@ Convert REWE eBon PDF receipts into a categorized CSV for further analysis (Exce
 - Finally download all PDF-Files and put them in the `./Bons` directory
 
 
+*You might ask why not download as CSV? This is what you get from the CSV File:*
+```"01.01.2026","18:55:03","91,33"```
+
+
 ### Step 2: Convert the Bons to CSV
 - Optionally change the `output_file_name` variable in `./auswerter.py`
 - Execute `python3 ./auswerter.py`
